@@ -32,7 +32,7 @@ class App extends React.Component {
      */
     buttonApi = () => {
 
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch('https://jsonterrence.s3.amazonaws.com/data.json')
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -60,13 +60,16 @@ class App extends React.Component {
         return (
             <div className="App">
             <button onClick = {this.buttonApi}>Click</button>
-                <ul className = 'cards'>
+                <div className = 'cards'>
                     {items.map(item => (
-                        <li key={item.id} className = 'anchor'>
-                            Name: {item.name} | Email: {item.email} | {item.username}
+                      <nav className = 'wrap'>
+                        <li key={item.id} className = 'list'>
+                            Name: {item.name} | Email: {item.email}
+
                         </li>
+                        </nav>
                     ))}
-                </ul>
+                </div>
             </div>
         );
 
